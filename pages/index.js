@@ -1,5 +1,6 @@
 import { Box, Button, Text, TextField, Image } from '@skynexui/components';
 import appConfig from '../config.json';
+import React from 'react'
 
 function GlobalStyle() {
   return (
@@ -46,31 +47,19 @@ function Titulo(props) {
   );
 }
 
-// Componente React
-// function HomePage() {
-//     // JSX
-//     return (
-//         <div>
-//             <GlobalStyle />
-//             <Titulo tag="h2">Boas vindas de volta!</Titulo>
-//             <h2>Discord - Alura Matrix</h2>
-//         </div>
-//     )
-// }
-// export default HomePage
-
 export default function PaginaInicial() {
-  const username = 'IvanCecilioF';
+  //const username = 'IvanCecilioF';
+  const [username, setUsername] = React.useState('IvanCecilioF')
 
   return (
     <>
       <GlobalStyle />
       <Box
         styleSheet={{
-          display: 'flex', alignItems: 'center', justifyContent: 'center', 
+          display: 'flex', alignItems: 'center', justifyContent: 'center',
           backgroundColor: appConfig.theme.colors.primary['000'],
-          backgroundImage: 'url(https://virtualbackgrounds.site/wp-content/uploads/2020/12/vintage-computers-collection-1536x864.jpg)', 
-          backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundBlendMode: 'multiply', 
+          backgroundImage: 'url(https://virtualbackgrounds.site/wp-content/uploads/2020/12/vintage-computers-collection-1536x864.jpg)',
+          backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundBlendMode: 'multiply',
         }}
       >
         <Box
@@ -102,6 +91,15 @@ export default function PaginaInicial() {
             </Text>
 
             <TextField
+              value={username}
+              onChange={function (event) {
+                // Onde ta o valor?
+                const valor = event.target.value;
+                // Trocar o valor da variavel
+                // através do React e avise quem precisa
+                setUsername(valor);
+              }}
+
               fullWidth
               textFieldColors={{
                 neutral: {
