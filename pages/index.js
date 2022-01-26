@@ -23,8 +23,6 @@ export default function PaginaInicial() {
   //const username = 'IvanCecilioF';
   const [username, setUsername] = React.useState('IvanCecilioF');
   const roteamento = useRouter();
-  const usernameLengt = username.length 
-
 
   return (
     <>
